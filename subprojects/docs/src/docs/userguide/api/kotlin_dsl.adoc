@@ -630,6 +630,7 @@ val myNullableProperty: String? by project // <2>
 
 The same approach works in both settings and initialization scripts, except you use `by settings` and `by gradle` respectively in place of `by project`.
 
+[[kotdsl:extra_properties]]
 === Extra properties
 
 Extra properties are available on any object that implements the link:{groovyDslPath}/org.gradle.api.plugins.ExtensionAware.html#org.gradle.api.plugins.ExtensionAware[ExtensionAware] interface.

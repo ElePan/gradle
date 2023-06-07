@@ -92,7 +92,7 @@ dependencies {
 =====
 ====
 
-The latter is a bit more involved as it may not be trivial to distinguish function invocations and property assignments in a Groovy script.
+The next step is a bit more involved as it may not be trivial to distinguish function invocations and property assignments in a Groovy script.
 A good strategy is to make all ambiguous statements property assignments first and then fix the build by turning the failing ones to function invocations.
 
 For example,
@@ -131,6 +131,11 @@ dependencies {
 
 While staying valid Groovy, it is now unambiguous and close to the Kotlin syntax, making it easier to then rename the script to turn it into a Gradle Kotlin DSL script.
 
+Finally, note that while Groovy extra properties can be modified using an object's `ext` property, in Kotlin they are modified using the `extra` property.
+It is important to look at each object and update the build scripts accordingly.
+For example, `ext {springVersion = "3.1.0.RELEASE"}` becomes `val springVersion by extra("3.1.0.RELEASE")`.
+
+Examples with additional details for handling extra properties can be found in <<kotlin_dsl#kotdsl:extra_properties,the Kotlin DSL primer>>.
 
 == Script file naming
 
